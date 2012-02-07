@@ -1,0 +1,19 @@
+----------------------------------------------------
+CUBAN COUNCIL
+
+Developed by Cuban Council
+Mike Buzzard <src@cubancouncil.com>
+Chris Forrette <chris@cubancouncil.com>
+----------------------------------------------------
+
+    `django-machete`
+    
+    A trusty blade (Python module) to use to slash (code) 
+    your way through any tumultuous terrain (Django project).
+    
+    Features some handy custom template tags, API helpers, 
+    global model stuff to add 'status', 'created', and 'modified'
+    fields, a custom windowed/ranged paginator, etc.
+    
+    See machete/test.py for a barrage of usage examples.
+    To install dependencies, run: pip install -r ./requirements.txt
