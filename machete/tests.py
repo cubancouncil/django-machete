@@ -43,6 +43,20 @@ class BaseTestCase(TestCase):
         rendered = Template(template).render(Context(context))
         
         return rendered, context
+    
+    def nice_form_errors(self, form):
+
+        """
+        Format form errors into a nice comma separated list like:
+
+            field_name1: error1, error2, field_name2: error1, error2
+
+        ...for easier-to-read reporting
+        """
+
+        if form.errors:
+            return ', '.join(['%s: %s' % (row[0], ', '.join(row[1])) for row in form.errors.items()])
+        return ''
 
 # ---- TEST CASES
 
