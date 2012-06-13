@@ -23,27 +23,27 @@ properly
 
 class PublishedQuerySet(models.query.QuerySet):
     def get_published(self):
-        return self.filter(status=1)
+        return self.filter(status=STATUS_PUBLISHED)
 
 class PublishedManager(models.Manager):
     def get_query_set(self):
         return PublishedQuerySet(self.model, using=self._db)
     
     def get_published(self):
-        return self.get_query_set().filter(status=1)
+        return self.get_query_set().filter(status=STATUS_PUBLISHED)
 
 # Global field model
 
 class GlobalModel(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
-    status = models.SmallIntegerField(max_length=1, choices=STATUS_OPTIONS, default=STATUS_PUBLISHED)
+    status = models.SmallIntegerField(max_length=max([len(str(STATUS_DRAFT)), len(str(STATUS_PUBLISHED))]), choices=STATUS_OPTIONS, default=STATUS_PUBLISHED)
     objects = PublishedManager()
     
     class Meta:
         abstract = True
     
     def get_is_published(self):
-        return self.status is 1
+        return self.status == STATUS_PUBLISHED
     
     is_published = property(get_is_published)
