@@ -16,5 +16,5 @@ Chris Forrette <chris@cubancouncil.com>
     fields, a custom windowed/ranged paginator, an auth backend to 
     allow users to log in with their email address etc.
     
-    See machete/test.py for a barrage of usage examples.
+    See test.py for a barrage of usage examples.
     To install dependencies, run: pip install -r ./requirements.txt
