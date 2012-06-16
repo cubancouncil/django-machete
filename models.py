@@ -37,7 +37,7 @@ class PublishedManager(models.Manager):
 class GlobalModel(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
-    status = models.SmallIntegerField(max_length=max([len(str(STATUS_DRAFT)), len(str(STATUS_PUBLISHED))]), choices=STATUS_OPTIONS, default=STATUS_PUBLISHED)
+    status = models.SmallIntegerField(max_length=max([len(str(STATUS_DRAFT)), len(str(STATUS_PUBLISHED))]), db_index=True, choices=STATUS_OPTIONS, default=STATUS_PUBLISHED)
     objects = PublishedManager()
     
     class Meta:
