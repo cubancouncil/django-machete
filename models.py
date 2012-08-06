@@ -30,7 +30,7 @@ class PublishedManager(models.Manager):
         return PublishedQuerySet(self.model, using=self._db)
     
     def get_published(self):
-        return self.get_query_set().filter(status=STATUS_PUBLISHED)
+        return self.get_query_set().get_published()
 
 # Global field model
 
